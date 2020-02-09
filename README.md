@@ -1,7 +1,7 @@
 # **pyUnit-log** [![](https://gitee.com/tyoui/logo/raw/master/logo/photolog.png)][1]
 
 ## 日志处理模块集合
-[![](https://img.shields.io/badge/Python-3.7-green.svg)]()
+[![](https://img.shields.io/badge/Python-3.7-green.svg)](https://pypi.org/project/pyunit-log/)
 
 ## 安装
     pip install pyunit-log
