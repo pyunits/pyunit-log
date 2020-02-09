@@ -29,7 +29,6 @@ import logging
 if __name__ == '__main__':
     log = Log()
 
-    # 加载默认配置文件，如果要自定义，流程如下：c = get_log_config() 先对c对象进行修改，set_log_file_config(c)
     log.get_log_config()  # 加载默认配置文件
     logging.info('默认加载到root下')
 
@@ -40,14 +39,16 @@ if __name__ == '__main__':
     error.error('日志文件写道error.log文件下')
 ```
 
-### 修改日志文件夹路径
+### 修改日志配置文件
 ```python
 from pyunit_log import Log
 import logging
 
 if __name__ == '__main__':
     log=Log()
-    config=log.log_config(log_save_dir='/temp/logs') 
+    # log_save_dir 修改保存日志文件夹地址
+    # config_path 修改配置文件地址
+    config=log.log_config(log_save_dir='/temp/logs',config_path=None) 
     log.set_log_config(config)
 
     info = logging.getLogger('info')
@@ -57,7 +58,7 @@ if __name__ == '__main__':
     error.error('日志文件写道error.log文件下')
 ```
 
-### [修改日志配置文件(log.ini)](https://docs.python.org/zh-cn/3.7/library/logging.handlers.html?highlight=timedrotatingfilehandler)
+### [修改配置文件格式](https://docs.python.org/zh-cn/3.7/library/logging.handlers.html?highlight=timedrotatingfilehandler)
 ```log
 [loggers]
 keys = root,info,error
