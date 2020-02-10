@@ -8,15 +8,15 @@
 
 ## 亮点
     快速简单的函数日志模块，只需要在函数头上写一个装饰器即可，一行代码解决日志问题。
-    @Log.log(log_file='./logs')
+    @log(log_file='./logs')
 
 ### 日志装饰器
 ```python
-from pyunit_log import Log
+from pyunit_log import log
 
 if __name__ == '__main__':
     #config_file是日志模板地址,不写默认加载
-    @Log.log(log_file='./logs',config_file=None)
+    @log(log_file='./logs',config_file=None)
     def division():
         pass
 ```
@@ -27,9 +27,8 @@ from pyunit_log import Log
 import logging
 
 if __name__ == '__main__':
-    log = Log()
+    Log()
 
-    log.get_log_config()  # 加载默认配置文件
     logging.info('默认加载到root下')
 
     info = logging.getLogger('info')
@@ -45,11 +44,9 @@ from pyunit_log import Log
 import logging
 
 if __name__ == '__main__':
-    log=Log()
-    # log_save_dir 修改保存日志文件夹地址
-    # config_path 修改配置文件地址
-    config=log.log_config(log_save_dir='/temp/logs',config_path=None) 
-    log.set_log_config(config)
+    log=Log(config_file = '',log_file = '')
+    # log_file 修改保存日志文件夹地址
+    # config_file 修改配置文件地址
 
     info = logging.getLogger('info')
     info.info('日志文件写道info.log文件下')
