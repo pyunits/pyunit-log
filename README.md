@@ -44,7 +44,7 @@ from pyunit_log import Log
 import logging
 
 if __name__ == '__main__':
-    log=Log(config_file = '',log_file = '')
+    Log(config_file = '',log_file = '')
     # log_file 修改保存日志文件夹地址
     # config_file 修改配置文件地址
 
