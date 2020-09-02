@@ -8,9 +8,6 @@ from pyunit_log import __version__, __author__, __description__, __email__, __na
 with open('README.md', encoding='utf-8') as f:
     long_text = f.read()
 
-with open('requirements.txt', encoding='utf-8') as f:
-    install_requires = f.read().strip().splitlines()
-
 setup(
     name=__names__.lower(),
     version=__version__,
@@ -24,11 +21,11 @@ setup(
     packages=find_packages(),
     platforms='any',
     package_data={'': ['*']},
-    install_requires=install_requires,
+    install_requires=[],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    zip_safe=True,
+    zip_safe=False,
 )

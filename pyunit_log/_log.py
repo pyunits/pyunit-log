@@ -24,9 +24,13 @@ class Log:
         :param log_file: 日志保存文件
         :param config_file: 日志配置文件
         """
-        self.config_file = config_file if config_file else os.path.dirname(__file__) + os.sep + 'log.ini'
-        self.log_file = log_file if log_file else './logs'
-        self.log_config()
+        if not hasattr(Log, "_init"):  # 增加初始化屬性
+            with Log._lock:  # 加锁防止多线程环境中两个线程同时实例化
+                if not hasattr(Log, "_init"):
+                    self.config_file = config_file if config_file else os.path.dirname(__file__) + os.sep + 'log.ini'
+                    self.log_file = log_file if log_file else './logs'
+                    self.log_config()
+                    Log._init = True
 
     def log_config(self) -> configparser:
         """加载当前文件下的log.ini文件
